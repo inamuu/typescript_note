@@ -42,7 +42,7 @@ exports.__esModule = true;
 var rss_parser_1 = __importDefault(require("rss-parser"));
 var parser = new rss_parser_1["default"]({
     customFields: {
-        item: ['description', 'hatena:bookmarkcount']
+        item: ['hatena:bookmarkcount']
     }
 });
 (function () { return __awaiter(void 0, void 0, void 0, function () {
@@ -57,8 +57,7 @@ var parser = new rss_parser_1["default"]({
                 //console.log(feed.title);
                 feed.items.forEach(function (item) {
                     console.log(item);
-                    console.log(item.title);
-                    console.log(item.description);
+                    console.log('bookmarkcount: ' + item['hatena:bookmarkcount']);
                 });
                 return [2 /*return*/];
         }

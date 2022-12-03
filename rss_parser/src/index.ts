@@ -1,13 +1,12 @@
 import Parser from 'rss-parser';
 
 type CustomItem = {
-  description: string,
-  bookmarkcount: number
+  'hatena:bookmarkcount': number
 }
 
 const parser: Parser<CustomItem> = new Parser({
   customFields: {
-    item: ['description','hatena:bookmarkcount']
+    item: ['hatena:bookmarkcount'],
   }
 });
 
@@ -17,7 +16,6 @@ const parser: Parser<CustomItem> = new Parser({
 
   feed.items.forEach(item => {
     console.log(item)
-    console.log(item.title);
-    console.log(item.description);
+    console.log('bookmarkcount: ' + item['hatena:bookmarkcount']);
   })
 })();
